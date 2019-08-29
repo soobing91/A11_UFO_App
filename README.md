@@ -1,1 +1,1 @@
-# Assignment_14_SooBin
+# Assignment 14: JavaScript and DOM Manipulation - SooBin
