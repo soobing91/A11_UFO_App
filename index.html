@@ -36,12 +36,36 @@
                   <div class="form-group">
                     <ul class="list-group" id="filters">
                       <li class="filter list-group-item">
-                        <label for="date">Enter a Date</label>
-                        <input class="form-control" id="datetime" type="text" placeholder="1/11/2011">
+                        <label for="date">Enter a date</label>
+                        <input class="form-control" id="datetime" type="text" placeholder="m/d/yyyy">
+                      </li>
+                      <li class="filter list-group-item">
+                        <label for="date">Enter city name</label>
+                        <input class="form-control" id="cities" type="text" placeholder="City">
+                      </li>
+                      <li class="filter list-group-item">
+                        <label for="date">Select state</label>
+                        <select class="form-group" id="states">
+                          <option value="" selected disabled>State/Province</option>
+                        </select>
+                      </li>
+                      </li>
+                      <li class="filter list-group-item">
+                        <label for="date">Select country</label>
+                        <select class="form-group" id="countries">
+                          <option value="" selected disabled>Country</option>
+                        </select>
+                      </li>
+                      <li class="filter list-group-item">
+                        <label for="date">Enter shape</label>
+                        <select class="form-group" id="shapes">
+                          <option value="" selected disabled>Shape</option>
+                        </select>
                       </li>
                     </ul>
                   </div>
                   <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
+                  <button id="reset-btn" type="button" class="btn btn-default">Reset Table</button>
                 </form>
               </div>
             </div>

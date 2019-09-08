@@ -4,9 +4,9 @@ var tableData = data;
 // Create a table
 // Capture tbody
 var tbody = d3.select('tbody');
-tbody.html('');
 
 // Construct tbody
+tbody.html('');
 tableData.forEach((sighting) => {
     var row = tbody.append('tr');
     Object.entries(sighting).forEach(([key, value]) => {
@@ -15,18 +15,80 @@ tableData.forEach((sighting) => {
     });
 });
 
+/**
+[ Part 2 ]
+Get distinct values for each entry to make dropdown menus.
+**/
+
+// State
+var stateInput = d3.select('#states');
+var states = [...new Set(
+    tableData.map((sighting) => sighting.state)
+)];
+states.sort();
+
+console.log(states);
+
+states.forEach((state) => {
+    var stateOption = stateInput.append('option');
+    stateOption.text(state);
+});
+
+// Country
+var countryInput = d3.select('#countries');
+var countries = [...new Set(
+    tableData.map((sighting) => sighting.country)
+)];
+countries.sort();
+
+console.log(countries);
+
+countries.forEach((country) => {
+    var countryOption = countryInput.append('option');
+    countryOption.text(country);
+});
+
+// Shape
+var shapeInput = d3.select('#shapes');
+var shapes = [...new Set(
+    tableData.map((sighting) => sighting.shape)
+)];
+shapes.sort();
+
+console.log(shapes);
+
+shapes.forEach((shape) => {
+    var shapeOption = shapeInput.append('option');
+    shapeOption.text(shape);
+});
+
+/**/
+
 // Listen events
 var button = d3.select('#filter-btn');
 
 button.on('click', function() {
     
-    // Capture input element
-    var inputElement = d3.select('#datetime');
-    var inputValue = inputElement.property('value');    
-    console.log(inputValue);
+    // Capture input elements
+    var dateInput = d3.select('#datetime');
+    var dateValue = dateInput.property('value');    
+    console.log(dateValue);
+
+    var cityInput = d3.select('#cities');
+    var cityValue = cityInput.property('value').toLowerCase();
+    console.log(cityValue);
+
+    var stateValue = stateInput.property('value');
+    console.log(stateValue);
+
+    var countryValue = countryInput.property('value');
+    console.log(countryValue);
+
+    var shapeValue = shapeInput.property('value');
+    console.log(shapeValue);
 
     // Filter the table
-    var filteredData = tableData.filter((sighting) => sighting.datetime === inputValue);
+    var filteredData = tableData.filter((sighting) => sighting.datetime === dateValue);
     console.log(filteredData);
 
     // Create the filtered table
@@ -43,4 +105,5 @@ button.on('click', function() {
     });
 });
 
-
+// Return to the original table
+var button2 = d3.select('#reset-btn');
