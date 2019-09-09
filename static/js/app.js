@@ -88,7 +88,14 @@ button.on('click', function() {
     console.log(shapeValue);
 
     // Filter the table
-    var filteredData = tableData.filter((sighting) => sighting.datetime === dateValue);
+
+    var filteredData = tableData.filter((sighting) => 
+        (sighting.datetime === dateValue || dateValue === '') &&
+        (sighting.city === cityValue || cityValue === '') &&
+        (sighting.state === stateValue || stateValue === '') &&
+        (sighting.country === countryValue || countryValue === '') &&
+        (sighting.shape === shapeValue || shapeValue === '')
+    );
     console.log(filteredData);
 
     // Create the filtered table
@@ -107,3 +114,13 @@ button.on('click', function() {
 
 // Return to the original table
 var button2 = d3.select('#reset-btn');
+button2.on('click', function() {
+    tbody.html('');
+    tableData.forEach((sighting) => {
+        var row = tbody.append('tr');
+        Object.entries(sighting).forEach(([key, value]) => {
+            var cell = row.append('td');
+            cell.text(value);
+        });
+    });
+});
