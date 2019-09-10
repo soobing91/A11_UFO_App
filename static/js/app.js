@@ -113,7 +113,7 @@ button.on('click', function() {
 });
 
 // Return to the original table
-var button2 = d3.select('#reset-btn');
+var button2 = d3.select('#rst-btn');
 button2.on('click', function() {
     tbody.html('');
     tableData.forEach((sighting) => {

@@ -32,7 +32,7 @@
             <div class="panel panel-default">
               <div class="panel-heading">Filter Search</div>
               <div class="panel-body">
-                <form>
+                <form id="filter-form">
                   <div class="form-group">
                     <ul class="list-group" id="filters">
                       <li class="filter list-group-item">
@@ -47,6 +47,7 @@
                         <label for="date">Select state</label>
                         <select class="form-group" id="states">
                           <option value="" selected disabled>State/Province</option>
+                          <option></option>
                         </select>
                       </li>
                       </li>
@@ -54,18 +55,20 @@
                         <label for="date">Select country</label>
                         <select class="form-group" id="countries">
                           <option value="" selected disabled>Country</option>
+                          <option></option>
                         </select>
                       </li>
                       <li class="filter list-group-item">
                         <label for="date">Enter shape</label>
                         <select class="form-group" id="shapes">
                           <option value="" selected disabled>Shape</option>
+                          <option></option>
                         </select>
                       </li>
                     </ul>
                   </div>
                   <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
-                  <button id="reset-btn" type="button" class="btn btn-default">Reset Table</button>
+                  <button id="rst-btn" type="button" class="btn btn-default">Reset Table</button>
                 </form>
               </div>
             </div>
