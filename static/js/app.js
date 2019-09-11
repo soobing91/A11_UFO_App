@@ -20,6 +20,12 @@ tableData.forEach((sighting) => {
 Get distinct values for each entry to make dropdown menus.
 **/
 
+// Date
+var dateInput = d3.select('#datetime');
+
+// City
+var cityInput = d3.select('#cities');
+
 // State
 var stateInput = d3.select('#states');
 var states = [...new Set(
@@ -70,11 +76,9 @@ var button = d3.select('#filter-btn');
 button.on('click', function() {
     
     // Capture input elements
-    var dateInput = d3.select('#datetime');
     var dateValue = dateInput.property('value');    
     console.log(dateValue);
 
-    var cityInput = d3.select('#cities');
     var cityValue = cityInput.property('value').toLowerCase();
     console.log(cityValue);
 
@@ -116,7 +120,8 @@ button.on('click', function() {
 var button2 = d3.select('#rst-btn');
 button2.on('click', function() {
     tbody.html('');
-    tableData.forEach((sighting) => {
+    document.getElementById("filter-form").reset();
+        tableData.forEach((sighting) => {
         var row = tbody.append('tr');
         Object.entries(sighting).forEach(([key, value]) => {
             var cell = row.append('td');
