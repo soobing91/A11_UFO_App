@@ -6,14 +6,19 @@ var tableData = data;
 var tbody = d3.select('tbody');
 
 // Construct tbody
-tbody.html('');
-tableData.forEach((sighting) => {
+
+function chart() {
+    tbody.html('');
+    tableData.forEach((sighting) => {
     var row = tbody.append('tr');
     Object.entries(sighting).forEach(([key, value]) => {
         var cell = row.append('td');
         cell.text(value);
     });
 });
+}
+
+chart();
 
 /**
 [ Part 2 ]
@@ -119,13 +124,6 @@ button.on('click', function() {
 // Return to the original table
 var button2 = d3.select('#rst-btn');
 button2.on('click', function() {
-    tbody.html('');
     document.getElementById("filter-form").reset();
-        tableData.forEach((sighting) => {
-        var row = tbody.append('tr');
-        Object.entries(sighting).forEach(([key, value]) => {
-            var cell = row.append('td');
-            cell.text(value);
-        });
-    });
+    chart();
 });
